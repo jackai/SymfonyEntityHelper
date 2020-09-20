@@ -39,7 +39,7 @@ class TestController extends AbstractController
     /**
      * @Route("/test")
      */
-    public function number(Request $request)
+    public function test(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
         try {
