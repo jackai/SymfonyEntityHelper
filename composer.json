@@ -1,0 +1,43 @@
+{
+  "name": "jackai/symfony-entity-helper",
+  "description": "Automatically generate `Getter` / `Setter` / `Isser` / `Hasser` function through annotation，And through `@ORM\Column` judgment to generate toArray return.",
+  "keywords": [
+    "entity",
+    "symfony",
+    "annotation"
+  ],
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jackai",
+      "homepage": "https://github.com/jackai/"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "symfony/framework-bundle": "^4.0|^5.0",
+    "doctrine/annotations": "^1.0"
+  },
+  "require-dev": {
+    "symfony/asset": "^4.0|^5.0",
+    "symfony/console": "^4.0|^5.0",
+    "symfony/config": "^4.0|^5.0",
+    "symfony/property-access": "^4.0|^5.0",
+    "symfony/form": "^4.0|^5.0",
+    "symfony/dom-crawler": "^4.0|^5.0",
+    "symfony/browser-kit": "^4.0|^5.0",
+    "symfony/cache": "^4.0|^5.0",
+    "symfony/phpunit-bridge": "^4.0|^5.0",
+    "symfony/stopwatch": "^4.0|^5.0",
+    "symfony/routing": "^4.0|^5.0",
+    "sensio/framework-extra-bundle": "^4.0|^5.0",
+    "doctrine/annotations": "^1.2",
+    "doctrine/common": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Jackai\\EntityHelper\\": ""
+    }
+  }
+}
