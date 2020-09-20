@@ -35,32 +35,32 @@ class Product
     use EntityHelperTrait;
 
     /**
+     * @EH\Getter
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @EH\Getter
      */
     private $id;
 
     /**
-     * @ORM\Column(type = "string", length = 255)
      * @EH\Getter
      * @EH\Setter
+     * @ORM\Column(type = "string", length = 255)
      */
     private $name;
     
     /**
+     * @EH\Getter
+     * @EH\Hasser
+     * @EH\Setter
      * @ORM\OneToMany(targetEntity="App\Entity\Pictures", mappedBy="product")
-     * @HA\Getter
-     * @HA\Hasser
-     * @HA\Setter
      */
     private $pictures;
     
     /**
+     * @EH\Isser
+     * @EH\Setter
      * @ORM\Column(type = "boolean", name="on_sale")
-     * @HA\Isser
-     * @HA\Setter
      */
     private $onSale;
 }
