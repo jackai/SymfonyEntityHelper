@@ -1,6 +1,6 @@
 {
   "name": "jackai/symfony-entity-helper",
-  "description": "Automatically generate `Getter` / `Setter` / `Isser` / `Hasser` function through annotation，And through `@ORM\\Column` judgment to generate toArray return.",
+  "description": "Automatically generate `Getter` / `Setter` / `Isser` / `Hasser` function through annotation, Automatically generate through `@ORM\\Column` judgment to generate toArray return and auto load values to entity.",
   "keywords": [
     "entity",
     "symfony",

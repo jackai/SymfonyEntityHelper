@@ -1,6 +1,8 @@
 # Jackai Entity Helper
 
-Automatically generate `Getter` / `Setter` / `Isser` / `Hasser` function through annotation，And through `@ORM\Column` judgment to generate toArray return.
+1. Automatically generate `Getter` / `Setter` / `Isser` / `Hasser` functions through annotation
+1. Automatically generate through `@ORM\Column` judgment to generate toArray return.
+1. Auto load values to entity. 
 
 ## Installation
 1.Open a command console, enter your project directory and execute the following command to download the latest version of this bundle:
@@ -19,6 +21,57 @@ services:
 ```
 
 ## Useage
+
+### Auto load values
+```
+namespace App\Controller;
+
+use App\Entity\Product;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use Jackai\EntityHelper\EntityHelpers;
+
+class TestController extends AbstractController
+{
+    /**
+     * @Route("/test")
+     */
+    public function number(Request $request)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        try {
+            $query = $request->query->all();
+            
+            // validate your values
+            
+            $product = new Product();
+            $query['create_at'] = new \DateTime();
+            
+            // auto load your values
+            EntityHelpers::load($product, $query);
+
+            $entityManager->persist($product);
+            $entityManager->flush();
+
+            return new JsonResponse([
+                'code' => 'ok',
+                'ret' => $product->toArray(),
+            ]);
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'code' => $e->getCode(),
+                'msg' => $e->getMessage(),
+            ]);
+        }
+    }
+}
+
+```
+
+### Automatically generate `Getter` / `Setter` / `Isser` / `Hasser` functions
 ```
 namespace App\Entity;
 
