@@ -48,7 +48,6 @@ class TestController extends AbstractController
             // validate your values
             
             $product = new Product();
-            $query['create_at'] = new \DateTime();
             
             // auto load your values
             EntityHelpers::load($product, $query);
