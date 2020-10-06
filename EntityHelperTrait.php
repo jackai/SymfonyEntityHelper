@@ -29,7 +29,6 @@ trait EntityHelperTrait
             return;
         }
 
-
         if (!$this->_loadedMagicTrait) {
             $cache = new FilesystemAdapter('app.jackai.entity_helper');
 
@@ -83,6 +82,8 @@ trait EntityHelperTrait
         if (in_array($var, $this->_isser) && strncasecmp($method, "is", 2) === 0) {
             return (boolean)$this->$var;
         }
+
+        throw new \Error(sprintf('Call to undefined method %s::%s()', get_class($this), $method));
     }
 
     /**
