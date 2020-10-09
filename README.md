@@ -1,4 +1,5 @@
 # Jackai Entity Helper
+[![Build Status](https://travis-ci.org/jackai/SymfonyEntityHelper.svg?branch=master)](https://travis-ci.org/jackai/SymfonyEntityHelper)
 
 1. Automatically generate `Getter` / `Setter` / `Isser` / `Hasser` functions through annotation
 1. Automatically generate through `@ORM\Column` judgment to generate toArray return.
